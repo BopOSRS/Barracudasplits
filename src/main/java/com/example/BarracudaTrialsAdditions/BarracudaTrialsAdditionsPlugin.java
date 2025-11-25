@@ -1,4 +1,4 @@
-package com.example.trials;
+package com.example.BarracudaTrialsAdditions;
 
 import com.google.inject.Inject;
 import com.google.inject.Provides;

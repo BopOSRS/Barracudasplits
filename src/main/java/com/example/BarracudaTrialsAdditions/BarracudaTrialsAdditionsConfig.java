@@ -1,4 +1,4 @@
-package com.example.BarracudaTrialAdditions;
+package com.example.BarracudaTrialsAdditions;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;

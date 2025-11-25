@@ -1,7 +1,7 @@
 package com.example;
 
 import net.runelite.client.RuneLite;
-import com.example.BarracudaTrialAdditions.BarracudaTrialsAdditionsPlugin;
+import com.example.BarracudaTrialsAdditions.BarracudaTrialsAdditionsPlugin;
 
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
