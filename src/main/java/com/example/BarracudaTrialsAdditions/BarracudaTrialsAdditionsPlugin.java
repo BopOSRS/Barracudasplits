@@ -29,7 +29,10 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
 
     @Inject
     private BarracudaTrialsAdditionsConfig config;
-    
+
+    @Getter
+    private boolean started;
+
     private int portalIndex = 0;
     private int currentTime = -1;      // total ticks since start (from script 8605)
     private int lastSplitTime = 0;     // total ticks at previous portal
