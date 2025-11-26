@@ -8,10 +8,10 @@ import net.runelite.client.config.Keybind;
 @ConfigGroup("BarracudaTrialsAdditions")
 public interface BarracudaTrialsAdditionsConfig extends Config {
     @ConfigItem(
-            keyName = "hideTransition",
-            name = "Hide portal transition",
-            description = "",
-            position = 0
+        keyName = "hideTransition",
+        name = "Hide portal transition",
+        description = "",
+        position = 0
     )
     default boolean hideTransition() {
         return true;
@@ -27,9 +27,10 @@ public interface BarracudaTrialsAdditionsConfig extends Config {
     }
 
     @ConfigItem(
-            keyName = "debug",
-            name = "Debug Mode",
-            description = "Enable debug output to chat"
+        keyName = "debug",
+        name = "Debug Mode",
+        description = "Enable debug output to chat",
+        position = 99
     )
     default boolean debug() {
         return false;

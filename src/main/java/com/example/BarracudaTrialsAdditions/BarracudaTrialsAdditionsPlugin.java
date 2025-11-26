@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @PluginDescriptor(
-        name = "Barracuda Trials additions",
-        description = "Description for BarracudaTrials",
-        tags = {""}
+        name = "Gwenith Glide additions",
+        description = "Some QoL for Gwenith Glide",
+        tags = {"barracuda", "trials"}
 )
 public class BarracudaTrialsAdditionsPlugin extends Plugin
 {
@@ -30,9 +30,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
     @Inject
     private BarracudaTrialsAdditionsConfig config;
 
-    @Getter
     private boolean started;
-
     private int portalIndex = 0;
     private int currentTime = -1;      // total ticks since start (from script 8605)
     private int lastSplitTime = 0;     // total ticks at previous portal
@@ -60,9 +58,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
         reset();
     }
 
-    // -------------------------------------------------------------------------
     // State handling: start / finish / reset
-    // -------------------------------------------------------------------------
 
     @Subscribe
     public void onGameTick(GameTick tick)
@@ -126,7 +122,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
         // currentTime is the last value from script 8605.
         int total = currentTime >= 0 ? currentTime + 1 : -1;
 
-        print("Run finished (completed), total time = " + total + " ticks", true);
+        print("Run finished, total time = " + total + " ticks", true);
         for (String s : splits)
         {
             print(s, false);
@@ -136,9 +132,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
     }
 
 
-    // -------------------------------------------------------------------------
     // Script hooks
-    // -------------------------------------------------------------------------
 
     @Subscribe
     private void onScriptPreFired(ScriptPreFired event)
@@ -160,16 +154,14 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
             return;
         }
 
-        // 5986: remove portal overlay (also used in gotr)
+        // 5986: remove portal overlay
         if (config.hideTransition() && scriptId == GOTR_ADJUST_PORTAL_SCRIPT_ID)
         {
             removePortalOverlay(event);
         }
     }
 
-    // -------------------------------------------------------------------------
     // Helpers
-    // -------------------------------------------------------------------------
 
     private void updateCurrentTimeFromScript(ScriptPreFired event)
     {
@@ -191,7 +183,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
             return;
         }
 
-        // last arg is "now"; time since some epoch in ticks
+        // last arg is "now"; ticks since server restart
         int now = (int) args[args.length - 1];
         currentTime = now - startTime;
     }
@@ -240,6 +232,7 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
     private void print(String message, boolean debug)
     {
         if (debug && !config.debug()) return;
+        if (!config.showSplits()) return;
         client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", message, "");
     }
 }
