@@ -6,16 +6,13 @@ import lombok.Getter;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.ClientTick;
 import net.runelite.api.events.GameTick;
 import net.runelite.api.events.ScriptPreFired;
 import net.runelite.api.gameval.VarPlayerID;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
-import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.ui.overlay.OverlayManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +26,6 @@ public class BarracudaTrialsAdditionsPlugin extends Plugin
 {
     @Inject
     private Client client;
-
-    @Inject
-    private OverlayManager overlayManager;
-
-    @Inject
-    private KeyManager keyManager;
 
     @Inject
     private BarracudaTrialsAdditionsConfig config;
