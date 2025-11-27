@@ -18,7 +18,7 @@ public interface BarracudaTrialsAdditionsConfig extends Config {
     }
     @ConfigItem(
         keyName = "showSplits",
-        name = "Show splits",
+        name = "Live splits",
         description = "",
         position = 1
     )
